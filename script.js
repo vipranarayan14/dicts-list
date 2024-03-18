@@ -3,17 +3,13 @@ import * as fs from "node:fs/promises";
 const filePath = "./indic-dicts-index/dictionaryIndices.md";
 const outputPath = "dicts_list.json";
 
-const printProgress = (progress) => {
-  process.stdout.clearLine(0);
-  process.stdout.cursorTo(0);
-  process.stdout.write(progress);
-};
-
 const getDictUrls = async (dictionaryReposURLs) => {
   const dictUrls = [];
 
   for (const [index, repoURL] of dictionaryReposURLs.entries()) {
-    printProgress(`Fetching ${index + 1} of ${dictionaryReposURLs.length}`);
+    console.log(
+      `Fetching repo ${index + 1} of ${dictionaryReposURLs.length}: ${repoURL}`
+    );
 
     const response = await fetch(repoURL);
 
