@@ -1,6 +1,7 @@
 import * as fs from "node:fs/promises";
 
 const filePath = "./indic-dicts-index/dictionaryIndices.md";
+const outputPath = "dicts_list.json";
 
 const printProgress = (progress) => {
   process.stdout.clearLine(0);
@@ -83,7 +84,9 @@ try {
 
   const dictsListJson = JSON.stringify(dictsList, null, 4);
 
-  await fs.writeFile("dicts_list.json", dictsListJson, "utf-8");
+  await fs.writeFile(outputPath, dictsListJson, "utf-8");
+
+  console.log(`Output written to ${outputPath}`);
 } catch (err) {
   console.error(err);
 }
