@@ -35,6 +35,6 @@ jobs:
       - name: Install Nodejs
         uses: actions/setup-node@v3
 
-      - name: Run Node.js scripts (modify as needed)
-        run: cd indic-dicts-index && node -v  # Run script
+      - name: Run scripts
+        run: node script.js  # Run script
 
