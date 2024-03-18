@@ -1,8 +1,10 @@
-const fs = require('fs');
+import { readFile } from 'node:fs/promises';
+
+const filePath = './indic-dicts-index/dictionaryIndices.md';
 
 try {
-  const files = fs.readdirSync('./indic-dicts-index');
-  console.log('Files in the current directory:', files);
+  const content = await readFile(filePath, 'utf-8');
+  console.log(content);
 } catch (err) {
-  console.error('Error reading directory:', err);
+  console.error(err);
 }
