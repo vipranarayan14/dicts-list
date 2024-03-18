@@ -36,5 +36,5 @@ jobs:
         uses: actions/setup-node@v4
 
       - name: Run scripts
-        run: node script.js  # Run script
+        run: npm run script  # Run script
 
